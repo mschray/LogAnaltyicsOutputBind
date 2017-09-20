@@ -64,7 +64,7 @@ namespace SampleExtension.Config
         context.AddConverter<JObject, LogAnalyticsMessage>(input => input.ToObject<LogAnalyticsMessage>());
 
         // Add a binding rule for Collector
-        context.AddBindingRule<LogAnalyticsAttributeAttribute>()
+        context.AddBindingRule<LogAnalyticsAttribute>()
             .BindToCollector<LogAnalyticsMessage>(attr => new LogAnalyticsAsyncCollector(this, attr));
     }
     }

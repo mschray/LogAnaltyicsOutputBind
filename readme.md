@@ -1,21 +1,31 @@
-# Slack output binding sample
+# Azure Long Analytics output binding sample
 
-This sample is a Azure Functions binding extension that allows you to write a Slack message by just adding an output binding.
+This sample is a Azure Functions binding extension that allows you to write a Azure Log Anayltics message by just adding an output binding.
 
 ## Using the binding
 
-To use the binding, register a new WebHook with Slack. Put the url in local.settings.json with the key `SlackWebHook`.
+To use this binding you'll need a to add three settings to your local.settings.json with with the keys:
+
+OPERATIONS_MANAGEMENT_WORKSPACE
+OPERATIONS_MANAGEMENT_KEY
+LOG_ANALYTICS_APPNAME
+
+##Where do I get the values for this setttings?
+- The OPERATIONS_MANAGEMENT_WORKSPACE is the "name" (really a GUIDish thing) that is shows up under overview in the Azure Portal after you've created the Azure Log Analytics service. [Create your Azure Log Analytics Workspace](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-get-started).
+- The OPERATIONS_MANAGEMENT_KEY can be obtained the by looking at the data sources in this article.
+- The LOG_ANALYTICS_APPNAME should be the name you want to appear for your app in the Log Analytics Service. Don't uses spaces of special characters.
 
 ### C#
 
-Just reference the Slack binding assembly and use the `[Slack]` attribute in your code:
+Just reference the Log Analytics binding assembly and use the `[LogAnalyticsAttribute]` attribute in your code:
 
-```csharp
-    [FunctionName("HttpTriggerSlack")]
-    public static string Run(
-        [HttpTrigger] SlackMessage message, 
-        [Slack(WebHookUrl = "SlackWebHook")] out SlackMessage slackMessage,
-        TraceWriter log)
+```
+csharp
+    public static HttpResponseMessage Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req,
+            [LogAnalyticsAttribute(CustomerID = "CustomerID", SharedKey = "SharedKey", LogName = "LogName")] out LogAnalyticsMessage logAnalyticsMessage,
+            TraceWriter log)
+        {
 ```
 
 ### JavaScript

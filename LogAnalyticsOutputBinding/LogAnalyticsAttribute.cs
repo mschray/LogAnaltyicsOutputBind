@@ -13,19 +13,19 @@ namespace SampleExtension
     /// </summary>
     [AttributeUsage(AttributeTargets.Parameter | AttributeTargets.ReturnValue)]
     [Binding]
-    public sealed class LogAnalyticsAttributeAttribute : Attribute
+    public sealed class LogAnalyticsAttribute : Attribute
     {
 
         /// <summary>
         /// Sets the Text for the current outgoing Slack message. May include binding parameters.
         /// </summary>
-        [AppSetting(Default = "CustomerID")]
+        [AppSetting(Default = "OPERATIONS_MANAGEMENT_WORKSPACE")]
         public string CustomerID { get; set; }
 
         /// <summary>
         /// Sets the Text for the current outgoing Slack message. May include binding parameters.
         /// </summary>
-        [AppSetting(Default = "SharedKey")]
+        [AppSetting(Default = "OPERATIONS_MANAGEMENT_KEY")]
         public string SharedKey { get; set; }
 
         /// <summary>

@@ -12,12 +12,12 @@ namespace SampleExtension.Config
     internal class LogAnalyticsAsyncCollector : IAsyncCollector<LogAnalyticsMessage>
     {
         private LogAnalyticsConfiguration config;
-        private LogAnalyticsAttributeAttribute attr;
+        private LogAnalyticsAttribute attr;
         private static HttpClient client = new HttpClient();
         // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
         private static string TimeStampField = "";
 
-        public LogAnalyticsAsyncCollector(LogAnalyticsConfiguration config, LogAnalyticsAttributeAttribute attr)
+        public LogAnalyticsAsyncCollector(LogAnalyticsConfiguration config, LogAnalyticsAttribute attr)
         {
             this.config = config;
             this.attr = attr;
@@ -35,7 +35,7 @@ namespace SampleExtension.Config
         }
 
         // combine properties to create final message that will be sent
-        private static LogAnalyticsMessage MergeMessageProperties(LogAnalyticsMessage item, LogAnalyticsConfiguration config, LogAnalyticsAttributeAttribute attr)
+        private static LogAnalyticsMessage MergeMessageProperties(LogAnalyticsMessage item, LogAnalyticsConfiguration config, LogAnalyticsAttribute attr)
         {
             var result = new LogAnalyticsMessage
             {
@@ -84,7 +84,7 @@ namespace SampleExtension.Config
 
         }
 
-        public static async Task<string> WriteLogEntry(LogAnalyticsMessage mergedItem, LogAnalyticsAttributeAttribute attribute)
+        public static async Task<string> WriteLogEntry(LogAnalyticsMessage mergedItem, LogAnalyticsAttribute attribute)
         {
             string result = string.Empty;
             try

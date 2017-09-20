@@ -11,7 +11,7 @@ namespace SampleFunctionApp
         [FunctionName("HttpTriggerSlack")]
         public static string Run(
             [HttpTrigger] LogAnalyticsMessage message, 
-            [LogAnalyticsAttribute()] out LogAnalyticsMessage slackMessage,
+            [LogAnalytics()] out LogAnalyticsMessage slackMessage,
             TraceWriter log)
         {
             slackMessage = message;
