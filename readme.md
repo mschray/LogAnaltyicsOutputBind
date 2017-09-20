@@ -1,6 +1,6 @@
 # Azure Long Analytics output binding sample
 
-This sample is a Azure Functions binding extension that allows you to write a Azure Log Anayltics message by just adding an output binding.  What is Azure Log Anayltics?  [Centralize log data from multiple systems in a single data store.](https://azure.microsoft.com/en-us/services/log-analytics/).
+This sample is a Azure Functions binding extension that allows you to write a Azure Log Anayltics message by just adding an output binding.  What is Azure Log Anayltics?  [Centralize log data from multiple systems in a single data store](https://azure.microsoft.com/en-us/services/log-analytics/).
 
 ## Using the binding
 
@@ -8,12 +8,12 @@ To use this binding you'll need a to add three settings to your local.settings.j
 
 OperationsManagementWorkspace
 OperationsManagementKey
-LOG_ANALYTICS_APPNAME
+LogName
 
 ## Where do I get the values for this setttings?
-- The OPERATIONS_MANAGEMENT_WORKSPACE is the "name" (really a GUIDish thing) that is shows up under overview in the Azure Portal after you've created the Azure Log Analytics service. [Create your Azure Log Analytics Workspace](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-get-started).
-- The OPERATIONS_MANAGEMENT_KEY can be obtained the by looking at the data sources in this article.
-- The LOG_ANALYTICS_APPNAME should be the name you want to appear for your app in the Log Analytics Service. Don't uses spaces of special characters.
+- The **OperationsMangagementWorkspace** is the "name" (really a GUIDish thing) that is shows up under overview in the Azure Portal after you've created the Azure Log Analytics service. [Create your Azure Log Analytics Workspace](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-get-started).
+- The **OperationsManagementKey** can be obtained the by looking at the data sources in this article.
+- The **LogName** should be the name you want to appear for your app in the Log Analytics Service. Don't uses spaces of special characters.
 
 ### C#
 
@@ -21,7 +21,6 @@ Just reference the Log Analytics binding assembly and use the `[LogAnalytics]` a
 
 ```
 csharp
-
     public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req,
             [LogAnalytics(CustomerID = "CustomerID", SharedKey = "SharedKey", LogName = "LogName")] out LogAnalyticsMessage logAnalyticsMessage,
