@@ -1,13 +1,13 @@
 # Azure Long Analytics output binding sample
 
-This sample is a Azure Functions binding extension that allows you to write a Azure Log Anayltics message by just adding an output binding.
+This sample is a Azure Functions binding extension that allows you to write a Azure Log Anayltics message by just adding an output binding.  What is Azure Log Anayltics?  [Centralize log data from multiple systems in a single data store.](https://azure.microsoft.com/en-us/services/log-analytics/).
 
 ## Using the binding
 
 To use this binding you'll need a to add three settings to your local.settings.json with with the keys:
 
-OPERATIONS_MANAGEMENT_WORKSPACE
-OPERATIONS_MANAGEMENT_KEY
+OperationsManagementWorkspace
+OperationsManagementKey
 LOG_ANALYTICS_APPNAME
 
 ## Where do I get the values for this setttings?
@@ -19,7 +19,8 @@ LOG_ANALYTICS_APPNAME
 
 Just reference the Log Analytics binding assembly and use the `[LogAnalytics]` attribute in your code:
 
-```csharp
+```
+csharp
 
     public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req,
