@@ -21,6 +21,7 @@ Just reference the Log Analytics binding assembly and use the `[LogAnalytics]` a
 
 ```
 csharp
+
     public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req,
             [LogAnalytics(CustomerID = "CustomerID", SharedKey = "SharedKey", LogName = "LogName")] out LogAnalyticsMessage logAnalyticsMessage,
