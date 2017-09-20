@@ -19,8 +19,7 @@ LOG_ANALYTICS_APPNAME
 
 Just reference the Log Analytics binding assembly and use the `[LogAnalytics]` attribute in your code:
 
-```
-csharp
+```csharp
 
     public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req,

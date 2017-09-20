@@ -15,44 +15,34 @@ namespace SampleExtension.Config
     {
         #region Global configuration defaults
         /// <summary>
-        /// Gets or sets the default "from: username" that will be used for messages.
+        /// Gets or sets operations management workspace id used for log analytics messages.
         /// This value can be overridden by job functions.
         /// </summary>
         /// <remarks>
-        /// This is a useful setting if you're planning on having lots of WebJobs posting
-        /// to the same WebHook, and want to differeniate them with separate usernames.
+        /// This is used to write to correct Azure Log Analytics Workspaces
         /// </remarks>
-        public string CustomerID { get; set; }
-
-        /// Gets or sets the default "Icon Emoji" that will be used for messages.
-        /// This value can be overridden by job functions.
-        /// </summary>
-        /// <remarks>
-        /// This is a useful setting if you're planning on having lots of WebJobs posting
-        /// to the same WebHook, and want to differeniate them with separate Icons.
-        /// 
-        /// The format for emoji is a keyword surrounded by ":". It supports custom emojis.
-        /// </remarks>
-        /// <example>
-        /// Example Icon Emoji for heart: ":heart:"
-        /// </example>
-        public string SharedKey { get; set; }
+        public string OperationsManagementWorkspace { get; set; }
 
         /// <summary>
-        /// Gets or sets the default "to: channel" that will be used for messages.
+        /// Gets or sets Operations Management Key to be used for log analytics messages.
         /// This value can be overridden by job functions.
         /// </summary>
         /// <remarks>
-        /// To send to a specific channel, use the "#channel" pattern.
-        /// 
-        /// To send to a specific user, use the "@username" pattern.
-        /// 
-        /// This is a useful setting if you're reusing the same WebHook as another integration, but
-        /// want to use a separate channel. It is also helpful for testing purposes.
+        /// This is the key used to authorize access to the Azure Log Analytics workspace
+        /// </remarks>
+        ///
+        public string OperationsManagementKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the logname that will be used for Azure Log Analytics messages.
+        /// This value can be overridden by job functions.
+        /// </summary>
+        /// <remarks>
+        /// When you write to Azure Log Analytics you must name the log you are writing to and
+        /// this is use for that purpose.
         /// </remarks>
         /// <example>
-        /// Example for sending to a specific channel, bot-channel: "#bot-channel"
-        /// Example for sending to a specific user: "@username"
+        /// Example of valid logname: MyLog
         /// </example>
         public string LogName { get; set; }
         #endregion

@@ -40,8 +40,8 @@ namespace SampleExtension.Config
             var result = new LogAnalyticsMessage
             {
                 Text = FirstOrDefault(item.Text, attr.Text),
-                CustomerId = FirstOrDefault(item.CustomerId, attr.CustomerID, config.CustomerID),
-                SharedKey = FirstOrDefault(item.SharedKey, attr.SharedKey, config.SharedKey),
+                OperationsManagementWorkspace = FirstOrDefault(item.OperationsManagementWorkspace, attr.OperationsManagementWorkspace, config.OperationsManagementWorkspace),
+                OperationsManagementKey = FirstOrDefault(item.OperationsManagementKey, attr.OperationsManagementKey, config.OperationsManagementKey),
                 LogName = FirstOrDefault(item.LogName, attr.LogName, config.LogName)
             };
 
@@ -67,10 +67,10 @@ namespace SampleExtension.Config
         }
 
         // Send a request to the POST API endpoint
-        public static async Task<string> PostData(string signature, string customerId, string logName, string date, string json)
+        public static async Task<string> PostData(string signature, string operationsManagemenetWorkspace, string logName, string date, string json)
         {
 
-            string url = "https://" + customerId + ".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
+            string url = "https://" + operationsManagemenetWorkspace + ".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
 
             using (var client = new WebClient())
             {
@@ -94,11 +94,11 @@ namespace SampleExtension.Config
                 string stringToHash = "POST\n" + mergedItem.Text.Length + "\napplication/json\n" + "x-ms-date:" + dateString + "\n/api/logs";
 
 
-                string hashedString = BuildSignature(stringToHash, attribute.SharedKey);
+                string hashedString = BuildSignature(stringToHash, attribute.OperationsManagementKey);
 
-                string signature = "SharedKey " + attribute.CustomerID + ":" + hashedString;
+                string signature = "SharedKey " + attribute.OperationsManagementWorkspace + ":" + hashedString;
                 
-                result = await PostData(signature, attribute.CustomerID, attribute.LogName, dateString, mergedItem.Text);
+                result = await PostData(signature, attribute.OperationsManagementWorkspace, attribute.LogName, dateString, mergedItem.Text);
             }
             catch (Exception ex)
             {

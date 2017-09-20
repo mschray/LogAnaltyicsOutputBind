@@ -11,12 +11,12 @@ namespace SampleExtension
     {
 
         // Update customerId to your Operations Management Suite workspace ID
-        [JsonProperty("customerid")]
-        public string CustomerId { get; set; }
+        [JsonProperty("operationsManagementWorkspace")]
+        public string OperationsManagementWorkspace { get; set; }
 
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
-        [JsonProperty("sharedkey")]
-        public string SharedKey { get; set; }
+        [JsonProperty("OperationsManagementKey")]
+        public string OperationsManagementKey { get; set; }
 
         // LogName is name of the event type that is being submitted to Log Analytics
         [JsonProperty("logname")]

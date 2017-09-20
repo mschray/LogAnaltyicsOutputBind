@@ -4,7 +4,7 @@
     "AzureWebJobsStorage": "",
     "AzureWebJobsDashboard": "",
     "AzureWebJobs_ExtensionsPath": ".",
-    "OPERATIONS_MANAGEMENT_WORKSPACE\": \"4c614d57-386b-42d6-a276-c05473b2caff\",",
+    "OPERATIONS_MANAGEMENT_WORKSPACE": "4c614d57-386b-42d6-a276-c05473b2caff\",",
     "OPERATIONS_MANAGEMENT_KEY": "TusB2L05kewEv9PNRQYcKGDc7L0vSA8jR9i6SDCbFpYHHnlPQKODpvAWZLinnWVIUnVUd5txOISBdbsoiuCjEg==\",",
     "LogName": "AttendanceHelper"
 

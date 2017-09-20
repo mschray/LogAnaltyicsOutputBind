@@ -20,13 +20,13 @@ namespace SampleExtension
         /// Sets the Text for the current outgoing Slack message. May include binding parameters.
         /// </summary>
         [AppSetting(Default = "OPERATIONS_MANAGEMENT_WORKSPACE")]
-        public string CustomerID { get; set; }
+        public string OperationsManagementWorkspace { get; set; }
 
         /// <summary>
         /// Sets the Text for the current outgoing Slack message. May include binding parameters.
         /// </summary>
         [AppSetting(Default = "OPERATIONS_MANAGEMENT_KEY")]
-        public string SharedKey { get; set; }
+        public string OperationsManagementKey { get; set; }
 
         /// <summary>
         /// Sets the Text for the current outgoing Slack message. May include binding parameters.
