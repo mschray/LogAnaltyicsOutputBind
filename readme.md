@@ -17,13 +17,13 @@ LOG_ANALYTICS_APPNAME
 
 ### C#
 
-Just reference the Log Analytics binding assembly and use the `[LogAnalyticsAttribute]` attribute in your code:
+Just reference the Log Analytics binding assembly and use the `[LogAnalytics]` attribute in your code:
 
 ```
 csharp
     public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req,
-            [LogAnalyticsAttribute(CustomerID = "CustomerID", SharedKey = "SharedKey", LogName = "LogName")] out LogAnalyticsMessage logAnalyticsMessage,
+            [LogAnalytics(CustomerID = "CustomerID", SharedKey = "SharedKey", LogName = "LogName")] out LogAnalyticsMessage logAnalyticsMessage,
             TraceWriter log)
         {
 ```
