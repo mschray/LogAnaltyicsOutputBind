@@ -4,8 +4,8 @@
     "AzureWebJobsStorage": "",
     "AzureWebJobsDashboard": "",
     "AzureWebJobs_ExtensionsPath": ".",
-    "OPERATIONS_MANAGEMENT_WORKSPACE": "",
-    "OPERATIONS_MANAGEMENT_KEY": "",
+    "OperationsManagementWorkspace": "",
+    "OperationsManagementKey": "",
     "LogName": "AttendanceHelper"
 
 

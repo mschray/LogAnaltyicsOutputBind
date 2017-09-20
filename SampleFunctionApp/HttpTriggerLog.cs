@@ -14,7 +14,7 @@ namespace SampleFunctionApp
         [FunctionName("HttpTriggerLog")]
         public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req,
-            [LogAnalytics(OperationsManagementWorkspace = "CustomerID", OperationsManagementKey = "SharedKey", LogName = "LogName")] out LogAnalyticsMessage logAnalyticsMessage,
+            [LogAnalytics(OperationsManagementWorkspace = "OperationsManagementWorkspace", OperationsManagementKey = "OperationsManagementKey", LogName = "LogName")] out LogAnalyticsMessage logAnalyticsMessage,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
